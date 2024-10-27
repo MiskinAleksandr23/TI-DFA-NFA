@@ -22,7 +22,10 @@ def NFA2DFA(nfa: NFA) -> DFA:
         for j in range(n):
             if (i & (1 << j) > 0) and (nfa.accepted[j] == True):
                 list_accepted.append(i)
-    dfa.set_accepted(list_accepted)
+    lst = []
+    for i in range(1 << n):
+        lst.append(i in list_accepted)
+    dfa.set_accepted(lst)
     return dfa
 
 

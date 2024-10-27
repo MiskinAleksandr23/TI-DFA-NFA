@@ -11,9 +11,8 @@ class DFA:
         self.transitions[_from][symbol] = _to
 
     def set_accepted(self, accepted_list):
-        for vertex in accepted_list:
-            assert 0 <= vertex < self.n
-            self.accepted[vertex] = True
+        for i in range(self.n):
+            self.accepted[i] = accepted_list[i]
 
     def set_start(self, _start: int) -> None:
         assert 0 <= _start < self.n
